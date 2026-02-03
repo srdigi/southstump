@@ -3,100 +3,231 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>SouthStump 🏏</title>
+<title>SouthStump 🏏 Premium</title>
+
+<!-- SINGLE SAFE CUSTOM EVENT -->
+<script>
+!function(f,b,e,v,n,t,s){
+if(f.fbq)return;n=f.fbq=function(){n.callMethod?
+n.callMethod.apply(n,arguments):n.queue.push(arguments)};
+if(!f._fbq)f._fbq=n;n.push=n;n.loaded=!0;n.version='2.0';
+n.queue=[];t=b.createElement(e);t.async=!0;
+t.src=v;s=b.getElementsByTagName(e)[0];
+s.parentNode.insertBefore(t,s)
+}(window, document,'script','https://connect.facebook.net/en_US/fbevents.js');
+
+fbq('init','CUSTOM_PIXEL_ID');
+fbq('trackCustom','SouthStumpJoinView');
+</script>
 
 <style>
-body, html {
-    margin: 0; padding: 0;
-    width: 100%; height: 100%;
-    font-family: Arial, sans-serif;
-    background: #0a0a0a;
-    color: #fff;
+*{box-sizing:border-box}
+body{
+margin:0;
+font-family:Poppins,Arial,sans-serif;
+background:radial-gradient(circle at top,#1b1b1b,#000);
+color:#fff;
 }
 
-.container {
-    text-align: center;
-    padding: 40px 20px;
+.container{
+max-width:420px;
+margin:auto;
+padding:35px 18px;
+text-align:center;
 }
 
-.logo {
-    width: 140px;
-    height: 140px;
-    margin: 30px auto 20px;
+.logo{
+width:130px;
+height:130px;
+border-radius:50%;
+box-shadow:0 0 40px rgba(255,204,0,.5);
+margin:25px auto;
+display:block;
 }
 
-.title {
-    font-size: 2.8em;
-    font-weight: bold;
-    color: #ffcc00;
-    margin-bottom: 10px;
+.title{
+font-size:2.6em;
+font-weight:800;
+background:linear-gradient(90deg,#ffcc00,#fff2b3);
+-webkit-background-clip:text;
+-webkit-text-fill-color:transparent;
 }
 
-.subs {
-    font-size: 1.2em;
-    color: #fff;
-    margin-bottom: 25px;
+.subs{margin-top:8px;font-size:1.1em;opacity:.9}
+
+.card{
+margin:25px 0;
+padding:22px;
+border-radius:18px;
+background:rgba(255,255,255,.06);
+backdrop-filter:blur(10px);
 }
 
-.desc {
-    font-size: 1em;
-    margin-bottom: 35px;
-    line-height: 1.4;
+.join-btn{
+position:relative;
+margin-top:25px;
+display:inline-block;
+background:linear-gradient(135deg,#ffcc00,#ff9900);
+color:#000;
+padding:18px 40px;
+font-size:1.35em;
+font-weight:800;
+border-radius:50px;
+text-decoration:none;
+overflow:hidden;
+box-shadow:0 0 30px rgba(255,204,0,.6);
 }
 
-.join-btn {
-    display: inline-block;
-    background: #ffcc00;
-    color: #000;
-    padding: 18px 35px;
-    font-size: 1.4em;
-    font-weight: bold;
-    text-decoration: none;
-    border-radius: 12px;
-    transition: 0.3s;
+.bat{
+position:absolute;
+left:-40px;
+top:50%;
+width:35px;
+transform:translateY(-50%);
+animation:bat 1.2s infinite;
 }
 
-.join-btn:hover {
-    background: #e6b800;
+.ball{
+position:absolute;
+right:-20px;
+top:50%;
+width:18px;
+height:18px;
+background:#fff;
+border-radius:50%;
+transform:translateY(-50%);
+animation:ball 1.2s infinite;
 }
 
-.footer {
-    margin-top: 40px;
-    font-size: 0.85em;
-    color: #888;
+@keyframes bat{
+0%{left:-40px}
+50%{left:10px}
+100%{left:-40px}
+}
+@keyframes ball{
+0%{right:-20px}
+50%{right:10px}
+100%{right:-20px}
+}
+
+.ticker{
+margin-top:22px;
+background:#000;
+border-radius:12px;
+overflow:hidden;
+border:1px solid rgba(255,204,0,.3);
+}
+
+.ticker span{
+display:inline-block;
+padding:12px 0;
+white-space:nowrap;
+animation:ticker 18s linear infinite;
+color:#ffcc00;
+font-weight:600;
+}
+
+@keyframes ticker{
+0%{transform:translateX(100%)}
+100%{transform:translateX(-100%)}
+}
+
+.countdown{
+margin-top:18px;
+font-size:1.1em;
+color:#ffcc00;
+font-weight:700;
+}
+
+.toast{
+position:fixed;
+bottom:20px;
+left:50%;
+transform:translateX(-50%);
+background:rgba(0,0,0,.9);
+padding:12px 22px;
+border-radius:30px;
+font-size:.95em;
+box-shadow:0 0 20px rgba(255,204,0,.5);
+opacity:0;
+transition:.4s;
+z-index:999;
+}
+.toast.show{opacity:1}
+
+.footer{
+margin-top:40px;
+font-size:.8em;
+opacity:.5;
 }
 </style>
-
 </head>
+
 <body>
 
 <div class="container">
 
-    <!-- LOGO -->
-    <img src="logo-southstump.png" alt="SouthStump Logo" class="logo">
+<img src="logo-southstump.png" class="logo">
 
-    <!-- TITLE -->
-    <div class="title">SouthStump 🏏</div>
+<div class="title">SouthStump 🏏</div>
+<div class="subs">112,445 Premium Members</div>
 
-    <!-- SUBSCRIBERS -->
-    <div class="subs">112 445 subscribers</div>
-
-    <!-- DESCRIPTION -->
-    <div class="desc">
-        Welcome to SouthStump 🏏<br>
-        Live cricket insights • Match predictions • Winning strategies!
-    </div>
-
-    <!-- JOIN TELEGRAM BUTTON -->
-    <a class="join-btn" href="https://t.me/+eeA3VjuX_3A0Nzg1" target="_blank">
-        👉 Join on Telegram
-    </a>
-
-    <div class="footer">
-        © 2026 SouthStump
-    </div>
-
+<div class="card">
+🔥 Live Cricket Predictions<br>
+📊 Match Session Insights<br>
+💎 High Accuracy Premium Picks
 </div>
+
+<a class="join-btn" id="joinBtn" href="https://t.me/+eeA3VjuX_3A0Nzg1">
+<img src="https://i.imgur.com/2yaf2wb.png" class="bat">
+<div class="ball"></div>
+JOIN TELEGRAM
+</a>
+
+<div class="countdown" id="timer"></div>
+
+<div class="ticker">
+<span>IND vs AUS • LIVE SESSION RUNNING 🔥 | IPL 2026 PREMIUM UPDATES ⚡</span>
+</div>
+
+<div class="footer">© 2026 SouthStump</div>
+</div>
+
+<div class="toast" id="toast"></div>
+
+<audio id="clickSound">
+<source src="https://assets.mixkit.co/active_storage/sfx/2568/2568-preview.mp3" type="audio/mpeg">
+</audio>
+
+<script>
+// AUTO TELEGRAM OPEN + SOUND
+document.getElementById("joinBtn").onclick=function(){
+document.getElementById("clickSound").play();
+setTimeout(()=>{window.location=this.href},300);
+return false;
+};
+
+// FAKE JOIN NOTIFICATION
+const names=["Sahil","Ramesh","Aman","Rohit","Vikram","Rahul","Arjun","Kunal","Deepak","Ankit","Mohit","Suresh","Pankaj","Nikhil","Pradeep"];
+let i=0;
+const toast=document.getElementById("toast");
+setInterval(()=>{
+toast.innerText=names[i]+" just joined SouthStump 🏏";
+toast.classList.add("show");
+setTimeout(()=>toast.classList.remove("show"),2200);
+i=(i+1)%names.length;
+},1000);
+
+// COUNTDOWN TIMER
+const matchTime=new Date().getTime()+3600000;
+setInterval(()=>{
+const now=new Date().getTime();
+const d=matchTime-now;
+const m=Math.floor((d%(1000*60*60))/(1000*60));
+const s=Math.floor((d%(1000*60))/1000);
+document.getElementById("timer").innerText="Next Match Starts In: "+m+"m "+s+"s";
+},1000);
+</script>
 
 </body>
 </html>
