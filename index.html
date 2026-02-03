@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 <title>SouthStump 🏏 Official</title>
 
 <!-- SINGLE SAFE CUSTOM EVENT -->
@@ -21,101 +21,114 @@ fbq('trackCustom','SouthStumpView');
 
 <style>
 *{box-sizing:border-box}
-body{
+html,body{
 margin:0;
+height:100%;
+overflow:hidden; /* NO SCROLL */
 font-family:Poppins,Arial,sans-serif;
 color:#fff;
-min-height:100vh;
+}
 
-/* HD CRICKET STADIUM BACKGROUND (AUTO) */
+/* FULLSCREEN BACKGROUND */
+body{
 background:
-linear-gradient(rgba(0,0,0,.28),rgba(0,0,0,.65)),
+linear-gradient(rgba(0,0,0,.30),rgba(0,0,0,.65)),
 url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1600&q=90")
 no-repeat center center/cover;
 }
 
+/* FULL SCREEN CONTAINER */
 .container{
+height:100vh;
 max-width:420px;
 margin:auto;
-padding:30px 18px 40px;
+padding:18px 16px;
+display:flex;
+flex-direction:column;
+justify-content:space-between;
 text-align:center;
 }
 
+/* TOP */
+.top{
+display:flex;
+flex-direction:column;
+align-items:center;
+}
+
 .logo{
-width:115px;
-height:115px;
+width:95px;
+height:95px;
 border-radius:50%;
-box-shadow:0 0 40px rgba(255,204,0,.6);
-margin:20px auto;
+box-shadow:0 0 30px rgba(255,204,0,.6);
+margin-bottom:8px;
 }
 
 .hook{
 color:#ffcc00;
 font-weight:800;
-letter-spacing:.4px;
-font-size:1em;
-text-shadow:0 2px 6px rgba(0,0,0,.6);
+font-size:.95em;
 }
 
 .title{
-font-size:2.4em;
+font-size:2.1em;
 font-weight:900;
 background:linear-gradient(90deg,#ffcc00,#fff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
-text-shadow:0 4px 10px rgba(0,0,0,.5);
 }
 
 .subs{
-margin-top:5px;
-font-size:1.05em;
+font-size:.95em;
 opacity:.95;
 }
 
+/* CENTER CARD */
 .card{
-margin:22px 0;
-padding:20px;
-border-radius:18px;
+margin:10px 0;
+padding:14px;
+border-radius:16px;
 background:rgba(0,0,0,.45);
 border:1px solid rgba(255,204,0,.3);
-backdrop-filter:blur(3px);
+font-size:.9em;
+line-height:1.5;
 }
 
+/* CTA */
 .join-btn{
-display:block;
-margin-top:25px;
 background:linear-gradient(135deg,#ffcc00,#ff9900);
 color:#000;
-padding:18px;
-font-size:1.35em;
+padding:15px;
+font-size:1.2em;
 font-weight:900;
-border-radius:60px;
+border-radius:50px;
 text-decoration:none;
-box-shadow:0 0 35px rgba(255,204,0,.7);
+box-shadow:0 0 28px rgba(255,204,0,.7);
 animation:pulse 1.3s infinite;
 }
 
 @keyframes pulse{
 0%{transform:scale(1)}
-50%{transform:scale(1.06)}
+50%{transform:scale(1.05)}
 100%{transform:scale(1)}
 }
 
+/* TICKER */
 .ticker{
-margin-top:20px;
 background:rgba(0,0,0,.85);
-border-radius:12px;
+border-radius:10px;
 overflow:hidden;
 border:1px solid rgba(255,204,0,.4);
 }
 
 .ticker span{
 display:inline-block;
-padding:12px 0;
+padding:8px 0;
 white-space:nowrap;
-animation:ticker 15s linear infinite;
+animation:ticker 14s linear infinite;
 color:#ffcc00;
 font-weight:700;
+font-size:.85em;
 }
 
 @keyframes ticker{
@@ -123,10 +136,10 @@ font-weight:700;
 100%{transform:translateX(-100%)}
 }
 
+/* FOOTER */
 .footer{
-margin-top:35px;
-font-size:.75em;
-opacity:.8;
+font-size:.7em;
+opacity:.75;
 }
 </style>
 </head>
@@ -135,30 +148,32 @@ opacity:.8;
 
 <div class="container">
 
+<!-- TOP -->
+<div class="top">
 <img src="logo-southstump.png" class="logo">
-
 <div class="hook">🔥 INDIA KA FASTEST CRICKET CHANNEL</div>
 <div class="title">SouthStump 🏏</div>
 <div class="subs">112,445+ Winning Members</div>
+</div>
 
+<!-- CENTER -->
 <div class="card">
 ✅ LIVE Match Session Updates<br>
 ✅ Premium Toss & Match Tips<br>
-✅ High Accuracy Cricket Calls<br>
-🚨 Limited Free Access
+✅ High Accuracy Cricket Calls
 </div>
 
+<!-- CTA -->
 <a class="join-btn" href="https://t.me/+eeA3VjuX_3A0Nzg1">
 JOIN TELEGRAM NOW
 </a>
 
+<!-- BOTTOM -->
 <div class="ticker">
-<span>
-IND vs AUS • LIVE SESSION 🔥 | IPL 2026 PREMIUM PICKS ⚡ | JOIN BEFORE MATCH ⏳
-</span>
+<span>IND vs AUS • LIVE SESSION 🔥 | IPL 2026 PREMIUM PICKS ⚡</span>
 </div>
 
-<div class="footer">© 2026 SouthStump • Official</div>
+<div class="footer">© 2026 SouthStump</div>
 
 </div>
 
