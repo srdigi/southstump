@@ -25,38 +25,13 @@ body{
 margin:0;
 font-family:Poppins,Arial,sans-serif;
 color:#fff;
-overflow:hidden;
-}
+min-height:100vh;
 
-/* VIDEO BACKGROUND */
-video.bg{
-position:fixed;
-top:0;left:0;
-width:100%;
-height:100%;
-object-fit:cover;
-z-index:-3;
-}
-
-/* IMAGE FALLBACK */
-.bg-img{
-position:fixed;
-top:0;left:0;
-width:100%;
-height:100%;
-background:url("https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&q=90")
+/* HD CRICKET STADIUM BACKGROUND (AUTO) */
+background:
+linear-gradient(rgba(0,0,0,.28),rgba(0,0,0,.65)),
+url("https://images.unsplash.com/photo-1540747913346-19e32dc3e97e?auto=format&fit=crop&w=1600&q=90")
 no-repeat center center/cover;
-z-index:-4;
-}
-
-/* OVERLAY – LIGHT SO STADIUM IS VISIBLE */
-.overlay{
-position:fixed;
-top:0;left:0;
-width:100%;
-height:100%;
-background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65));
-z-index:-2;
 }
 
 .container{
@@ -79,6 +54,7 @@ color:#ffcc00;
 font-weight:800;
 letter-spacing:.4px;
 font-size:1em;
+text-shadow:0 2px 6px rgba(0,0,0,.6);
 }
 
 .title{
@@ -87,6 +63,7 @@ font-weight:900;
 background:linear-gradient(90deg,#ffcc00,#fff);
 -webkit-background-clip:text;
 -webkit-text-fill-color:transparent;
+text-shadow:0 4px 10px rgba(0,0,0,.5);
 }
 
 .subs{
@@ -101,7 +78,7 @@ padding:20px;
 border-radius:18px;
 background:rgba(0,0,0,.45);
 border:1px solid rgba(255,204,0,.3);
-backdrop-filter:blur(4px);
+backdrop-filter:blur(3px);
 }
 
 .join-btn{
@@ -149,22 +126,12 @@ font-weight:700;
 .footer{
 margin-top:35px;
 font-size:.75em;
-opacity:.7;
+opacity:.8;
 }
 </style>
 </head>
 
 <body>
-
-<!-- FALLBACK IMAGE -->
-<div class="bg-img"></div>
-
-<!-- HD STADIUM VIDEO -->
-<video class="bg" autoplay muted loop playsinline>
-<source src="https://cdn.coverr.co/videos/coverr-packed-cricket-stadium-7207/1080p.mp4" type="video/mp4">
-</video>
-
-<div class="overlay"></div>
 
 <div class="container">
 
