@@ -28,22 +28,35 @@ color:#fff;
 overflow:hidden;
 }
 
+/* VIDEO BACKGROUND */
 video.bg{
 position:fixed;
 top:0;left:0;
 width:100%;
 height:100%;
 object-fit:cover;
-z-index:-2;
+z-index:-3;
 }
 
+/* IMAGE FALLBACK */
+.bg-img{
+position:fixed;
+top:0;left:0;
+width:100%;
+height:100%;
+background:url("https://images.unsplash.com/photo-1502877338535-766e1452684a?auto=format&fit=crop&w=1600&q=90")
+no-repeat center center/cover;
+z-index:-4;
+}
+
+/* OVERLAY – LIGHT SO STADIUM IS VISIBLE */
 .overlay{
 position:fixed;
 top:0;left:0;
 width:100%;
 height:100%;
-background:linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.85));
-z-index:-1;
+background:linear-gradient(rgba(0,0,0,.35),rgba(0,0,0,.65));
+z-index:-2;
 }
 
 .container{
@@ -86,9 +99,9 @@ opacity:.95;
 margin:22px 0;
 padding:20px;
 border-radius:18px;
-background:rgba(0,0,0,.55);
-border:1px solid rgba(255,204,0,.25);
-backdrop-filter:blur(6px);
+background:rgba(0,0,0,.45);
+border:1px solid rgba(255,204,0,.3);
+backdrop-filter:blur(4px);
 }
 
 .join-btn{
@@ -111,16 +124,9 @@ animation:pulse 1.3s infinite;
 100%{transform:scale(1)}
 }
 
-.timer{
-margin-top:15px;
-font-size:1.1em;
-font-weight:700;
-color:#ffcc00;
-}
-
 .ticker{
 margin-top:20px;
-background:#000;
+background:rgba(0,0,0,.85);
 border-radius:12px;
 overflow:hidden;
 border:1px solid rgba(255,204,0,.4);
@@ -140,36 +146,24 @@ font-weight:700;
 100%{transform:translateX(-100%)}
 }
 
-.toast{
-position:fixed;
-bottom:20px;
-left:50%;
-transform:translateX(-50%);
-background:rgba(0,0,0,.9);
-padding:12px 22px;
-border-radius:30px;
-font-size:.95em;
-box-shadow:0 0 25px rgba(255,204,0,.6);
-opacity:0;
-transition:.4s;
-z-index:999;
-}
-.toast.show{opacity:1}
-
 .footer{
 margin-top:35px;
 font-size:.75em;
-opacity:.6;
+opacity:.7;
 }
 </style>
 </head>
 
 <body>
 
-<!-- STADIUM VIDEO BACKGROUND -->
+<!-- FALLBACK IMAGE -->
+<div class="bg-img"></div>
+
+<!-- HD STADIUM VIDEO -->
 <video class="bg" autoplay muted loop playsinline>
-<source src="https://cdn.coverr.co/videos/coverr-cricket-stadium-9164/1080p.mp4" type="video/mp4">
+<source src="https://cdn.coverr.co/videos/coverr-packed-cricket-stadium-7207/1080p.mp4" type="video/mp4">
 </video>
+
 <div class="overlay"></div>
 
 <div class="container">
@@ -187,59 +181,19 @@ opacity:.6;
 🚨 Limited Free Access
 </div>
 
-<a class="join-btn" id="joinBtn" href="https://t.me/+eeA3VjuX_3A0Nzg1">
+<a class="join-btn" href="https://t.me/+eeA3VjuX_3A0Nzg1">
 JOIN TELEGRAM NOW
 </a>
 
-<div class="timer" id="timer"></div>
-
 <div class="ticker">
-<span>IND vs AUS • LIVE SESSION 🔥 | IPL 2026 PREMIUM PICKS ⚡ | JOIN BEFORE MATCH ⏳</span>
+<span>
+IND vs AUS • LIVE SESSION 🔥 | IPL 2026 PREMIUM PICKS ⚡ | JOIN BEFORE MATCH ⏳
+</span>
 </div>
 
 <div class="footer">© 2026 SouthStump • Official</div>
+
 </div>
-
-<div class="toast" id="toast"></div>
-
-<audio id="crowd">
-<source src="https://assets.mixkit.co/active_storage/sfx/2356/2356-preview.mp3" type="audio/mpeg">
-</audio>
-
-<script>
-// CROWD SOUND ON FIRST TAP
-document.body.addEventListener("click",()=>{
-document.getElementById("crowd").play();
-},{once:true});
-
-// AUTO TELEGRAM
-document.getElementById("joinBtn").onclick=function(){
-setTimeout(()=>{window.location=this.href},200);
-return false;
-};
-
-// FAKE JOIN TOAST
-const names=["Sahil","Ramesh","Aman","Rohit","Rahul","Vikram","Kunal","Arjun","Deepak","Ankit","Mohit","Suresh","Pankaj","Nikhil","Pradeep"];
-let i=0;
-const toast=document.getElementById("toast");
-setInterval(()=>{
-toast.innerText=names[i]+" joined & won profit 🏏";
-toast.classList.add("show");
-setTimeout(()=>toast.classList.remove("show"),2200);
-i=(i+1)%names.length;
-},1100);
-
-// MATCH COUNTDOWN
-const matchTime=new Date().getTime()+3600000;
-setInterval(()=>{
-const now=new Date().getTime();
-const d=matchTime-now;
-const m=Math.floor((d%(1000*60*60))/(1000*60));
-const s=Math.floor((d%(1000*60))/1000);
-document.getElementById("timer").innerText=
-"⏳ Match Starts In: "+m+"m "+s+"s";
-},1000);
-</script>
 
 </body>
 </html>
